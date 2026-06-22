@@ -431,6 +431,8 @@
 
 ## 8. პროდუქტების კატეგორიებით ფილტრაცია
 
+დავალების პასუხი ბოლოშია, ჯერ ცადე შენით გაკეთება თუ ვერ გააკეთებ გაარჩიე ქვევით არსებული კოდი.
+
 **დავალება:** შექმენი პროდუქტების კატეგორიებით ფილტრაციის სისტემა.
 
 კატეგორიის ღილაკზე დაჭერისას უნდა გამოჩნდეს შესაბამისი პროდუქტები. `"All"` ღილაკმა ყველა პროდუქტი უნდა გამოაჩინოს.
@@ -1115,4 +1117,58 @@ Thumbnail-ებისთვის გამოიყენე ერთი List
     </button>
   </article>
 </div>
+```
+
+
+8 დავალების პასუხი:
+```javascript
+// Select all tasks and columns
+const tasks = document.querySelectorAll('.task');
+const columns = document.querySelectorAll('.column');
+
+// 1. Task Drag Events
+tasks.forEach(task => {
+  // Triggered when the user starts dragging a task
+  task.addEventListener('dragstart', (event) => {
+    event.target.classList.add('dragging');
+  });
+
+  // Triggered when the user releases the task
+  task.addEventListener('dragend', (event) => {
+    event.target.classList.remove('dragging');
+  });
+});
+
+// 2. Column Drop Zone Events
+columns.forEach(column => {
+  // Triggered when a dragged element is over a valid drop target
+  column.addEventListener('dragover', (event) => {
+    // Prevent default to allow dropping
+    event.preventDefault(); 
+    
+    // event.currentTarget refers to the column itself
+    event.currentTarget.classList.add('drag-over');
+  });
+
+  // Triggered when a dragged element leaves the column area
+  column.addEventListener('dragleave', (event) => {
+    event.currentTarget.classList.remove('drag-over');
+  });
+
+  // Triggered when the element is dropped on the column
+  column.addEventListener('drop', (event) => {
+    event.preventDefault();
+    
+    // Remove the dashed border visual cue
+    event.currentTarget.classList.remove('drag-over');
+    
+    // Find the current element being dragged
+    const draggingTask = document.querySelector('.task.dragging');
+    
+    if (draggingTask) {
+      // Append the task to the column where it was dropped
+      event.currentTarget.appendChild(draggingTask);
+    }
+  });
+});
 ```
