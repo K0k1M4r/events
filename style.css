@@ -1,0 +1,58 @@
+  .products {
+    display: grid;
+    gap: 10px;
+    max-width: 400px;
+  }
+
+  .product {
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .faq {
+    max-width: 500px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 14px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 14px;
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgb(0 0 0 / 60%);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.open {
+    display: flex;
+  }
+
+  .modal {
+    width: 320px;
+    padding: 24px;
+    background: white;
+    border-radius: 8px;
+  }

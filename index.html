@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <input id="searchInput" type="text" placeholder="Search products...">
+
+    <div class="products">
+        <div class="product">Laptop</div>
+        <div class="product">Smartphone</div>
+        <div class="product">Headphones</div>
+        <div class="product">Keyboard</div>
+        <div class="product">Mouse</div>
+    </div>
+
+
+    <div id="faqList" class="faq">
+        <div class="faq-item">
+            <button class="faq-question">
+            <span>What is JavaScript?</span>
+            </button>
+
+            <div class="faq-answer">
+            JavaScript is a programming language.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+            <span>What is DOM?</span>
+            </button>
+
+            <div class="faq-answer">
+            DOM represents the structure of a web page.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+            <span>What is an Event?</span>
+            </button>
+
+            <div class="faq-answer">
+            An Event describes an action that happened in the browser.
+            </div>
+        </div>
+    </div>
+
+    <button id="openModalBtn">Open Modal</button>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h2>Confirmation</h2>
+            <p>Are you sure you want to continue?</p>
+
+            <button id="confirmBtn">Confirm</button>
+            <button id="closeModalBtn">Close</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
