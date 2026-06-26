@@ -56,3 +56,47 @@
     background: white;
     border-radius: 8px;
   }
+
+
+    .form-group {
+    margin-bottom: 14px;
+  }
+
+  input {
+    display: block;
+    width: 280px;
+    padding: 10px;
+    border: 1px solid #aaa;
+  }
+
+  input.invalid {
+    border-color: red;
+  }
+
+  .error {
+    min-height: 18px;
+    color: red;
+    font-size: 14px;
+  }
+
+  .success {
+    color: green;
+  }
+
+  body {
+    transition: 0.2s;
+  }
+
+  body.dark {
+    background: #151515;
+    color: white;
+  }
+
+  .message {
+    padding: 20px;
+    border: 1px solid #aaa;
+  }
+
+  .hidden {
+    display: none;
+  }

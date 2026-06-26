@@ -60,6 +60,77 @@ closeModel.addEventListener('click', closeModelFunc)
 
 overlay.addEventListener('click', closeModelFunc);
 
-modalContent.addEventListener('click', function(event) {
-    event.stopPropagation(); 
-});
+// modalContent.addEventListener('click', function(event) {
+//     event.stopPropagation(); 
+// });
+
+// 4
+let emailInput = document.getElementById('emailInput');
+let nameInput = document.getElementById('nameInput');
+let passwordInput = document.getElementById('passwordInput');
+let submit = document.getElementById('submit');
+
+
+nameInput.addEventListener('input', function(){
+ if (nameInput.value === '') {
+        setError(nameInput, 'Name cannot be empty.');
+    } else {
+        setError(nameInput, '');
+    }
+})
+
+emailInput.addEventListener('input', function(){
+    if(!emailInput.value.includes('@')){
+        setError(emailInput, 'Email not valid')
+    } else {
+        setError(emailInput, '')
+    }
+})
+
+passwordInput.addEventListener('input', function(){
+    if(passwordInput.value.length >= 8){
+        setError(passwordInput, '')
+    } else {
+        setError(passwordInput, 'Pass not valid')
+    }
+})
+
+
+function setError(inputElement, errorMessage) {
+    let errorDiv = inputElement.nextElementSibling;
+    errorDiv.textContent = errorMessage;
+}
+
+function setSuccess(inputElement, goodMessage) {
+    let succDiv = inputElement.nextElementSibling;
+    succDiv.textContent = goodMessage;
+}
+
+submit.addEventListener('click', function(){
+    
+
+    let isNameValid = nameInput.value !== '';
+    let isEmailValid = emailInput.value.includes('@');
+    let isPasswordValid = passwordInput.value.length >= 8;
+
+    if (isNameValid && isEmailValid && isPasswordValid){
+        setSuccess(submit, 'Registration successful!');
+    } else {
+        setError(passwordInput, 'Registration failed!')
+    }
+})
+
+// 5
+let shortcutMessage = document.getElementById('shortcutMessage');
+
+
+shortcutMessage.addEventListener('keydown', function(event){
+    
+    if(event.key === 'Escape'){
+        shortcutMessage.style.display = "none"
+    }
+    if(event.key === 'Enter'){
+        shortcutMessage.style.display = "flex"
+    }
+
+})
